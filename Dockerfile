@@ -1,14 +1,14 @@
-# Use Java 17 runtime base image
-FROM eclipse-temurin:17-jre-alpine
+# Use a minimal base image with Java 17 (adjust as needed)
+FROM eclipse-temurin:17-jdk-alpine
 
-# Define the path to the built JAR file (change if needed)
-ARG artifact=target/springboot-demo-1.0.0.jar
+# Set application directory
+WORKDIR /app
 
-# Set the working directory inside the container
-WORKDIR /opt/app
+# Copy the JAR file (adjust name if needed)
+COPY target/*.jar app.jar
 
-# Copy the JAR file into the image
-COPY ${artifact} app.jar
+# Expose the application's port (default is 8080)
+EXPOSE 8080
 
-# Set the default command to run the application
+# Run the application
 ENTRYPOINT ["java", "-jar", "app.jar"]

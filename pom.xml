@@ -17,15 +17,21 @@
   <properties>
     <java.version>17</java.version>
   </properties>
+<dependencies>
+  <!-- Spring Boot Web -->
+  <dependency>
+    <groupId>org.springframework.boot</groupId>
+    <artifactId>spring-boot-starter-web</artifactId>
+  </dependency>
 
-  <dependencies>
-    <dependency>
-   <dependency>
-  <groupId>org.apache.tomcat.embed</groupId>
-  <artifactId>tomcat-embed-core</artifactId>
-  <version>10.1.35</version> <!-- Safe version -->
-</dependency>
-
+  <!-- Override vulnerable tomcat-embed-core version -->
+  <dependency>
+    <groupId>org.apache.tomcat.embed</groupId>
+    <artifactId>tomcat-embed-core</artifactId>
+    <version>10.1.35</version> <!-- Fixed version for CVE-2025-24813 -->
+  </dependency>
+</dependencies>
+  
 
   <build>
     <plugins>

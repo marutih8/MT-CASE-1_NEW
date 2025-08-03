@@ -13,7 +13,7 @@ pipeline {
     stages {
         stage('Checkout from SCM') {
             steps {
-                git branch:'dev', url: 'https://github.com/marutih8/MT-CASE-1_NEW.git'
+                git branch:'main', url: 'https://github.com/marutih8/MT-CASE-1_NEW.git'
             }
         }
     
